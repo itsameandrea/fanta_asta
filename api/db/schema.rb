@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_151116) do
+ActiveRecord::Schema.define(version: 2019_04_20_102416) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -18,13 +18,6 @@ ActiveRecord::Schema.define(version: 2019_04_19_151116) do
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "ownerships", force: :cascade do |t|
-    t.integer "client_id"
-    t.integer "user_id"
-    t.index ["client_id"], name: "index_ownerships_on_client_id"
-    t.index ["user_id"], name: "index_ownerships_on_user_id"
   end
 
   create_table "shifts", force: :cascade do |t|
@@ -42,13 +35,18 @@ ActiveRecord::Schema.define(version: 2019_04_19_151116) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "color"
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_teams_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email"
+    t.integer "client_id"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_users_on_client_id"
   end
 
 end

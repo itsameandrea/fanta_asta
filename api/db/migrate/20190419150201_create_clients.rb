@@ -7,10 +7,5 @@ class CreateClients < ActiveRecord::Migration[5.2]
     	
       t.timestamps
     end
-
-    create_table :ownerships do |t|
-    	t.references :client
-    	t.references :user
-    end
   end
 end

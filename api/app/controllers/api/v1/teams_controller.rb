@@ -10,7 +10,8 @@ module Api
 			end
 
 			def index
-				teams = Team.all
+				teams = policy_scope(Team)
+				render json: teams
 			end
 
 			def show
