@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       get '/users/me' => 'users#me'
 
       resources :shifts
-      
     	resources :teams
     end
   end

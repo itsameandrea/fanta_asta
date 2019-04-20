@@ -13,38 +13,38 @@ module Api
           render json: { error: user.errors.full_messages }, status: :unprocessable_entity
         end
       end
-
-			def index
-				users = policy_scope(User)
-
-				send_response users
-      end
       
       def me 
         if current_user
           send_response current_user
         end
-      end
-
-			def show
-				user = policy_scope(User).find_by_id params[:id]
-
-				send_response user
 			end
+			
+			# def index
+			# 	users = policy_scope(User)
 
-			def update
-				user = User.find_by_id params[:id]
-				user.update_attributes user_params
+			# 	send_response users
+      # end
 
-				send_response user
-			end
+			# def show
+			# 	user = policy_scope(User).find_by_id params[:id]
 
-			def destroy
-				user = User.find_by_id params[:id]
-				user.destroy
+			# 	send_response user
+			# end
 
-				render status: :no_content
-			end
+			# def update
+			# 	user = User.find_by_id params[:id]
+			# 	user.update_attributes user_params
+
+			# 	send_response user
+			# end
+
+			# def destroy
+			# 	user = User.find_by_id params[:id]
+			# 	user.destroy
+
+			# 	render status: :no_content
+			# end
 			
 			private
 
