@@ -10,7 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_042659) do
+ActiveRecord::Schema.define(version: 2019_04_19_151116) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "subdomain"
+    t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ownerships", force: :cascade do |t|
+    t.integer "client_id"
+    t.integer "user_id"
+    t.index ["client_id"], name: "index_ownerships_on_client_id"
+    t.index ["user_id"], name: "index_ownerships_on_user_id"
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "team_id"
+    t.date "date"
+    t.string "start_time"
+    t.string "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_shifts_on_team_id"
+    t.index ["user_id"], name: "index_shifts_on_user_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"

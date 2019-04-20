@@ -1,10 +1,9 @@
 class ApplicationController < ActionController::API
-	include JWTSessions::RailsAuthorization
-	rescue_from JWTSessions::Errors::Unauthorized, with :not_authorized
-
+	include Knock::Authenticable
+	
 	private
-
-  def not_authorized
-    render json: { error: 'Not Authorized' }, status: :unauthorized
+  
+  def authenticate_api_user
+    authenticate_for Api::V1::User
   end
 end
