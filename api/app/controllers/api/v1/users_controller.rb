@@ -6,8 +6,8 @@ module Api
         user = User.new user_params
 
         if user.save
-          auth_token = Knock::AuthToken.new payload: { sub: user.id }
-          response.set_header('x-auth-token', auth_token.token)
+					auth_token = Knock::AuthToken.new payload: { sub: user.id }
+					render json: { jwt: auth_token.token }
           render status: :created
         else
           render json: { error: user.errors.full_messages }, status: :unprocessable_entity
