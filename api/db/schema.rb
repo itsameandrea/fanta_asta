@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_20_102416) do
+ActiveRecord::Schema.define(version: 2019_04_20_121342) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_04_20_102416) do
     t.string "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_shifts_on_client_id"
     t.index ["team_id"], name: "index_shifts_on_team_id"
     t.index ["user_id"], name: "index_shifts_on_user_id"
   end

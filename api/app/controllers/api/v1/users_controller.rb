@@ -1,14 +1,12 @@
 module Api
-  module V1
-    class UsersController < ApplicationController
-
+	module V1
+		class UsersController < ApplicationController
+      
       def create
         user = User.new user_params
 
         if user.save
-          # If your User model has a `to_token_payload` method, you should use that here
           auth_token = Knock::AuthToken.new payload: { sub: user.id }
-          puts auth_token.inspect
           response.set_header('x-auth-token', auth_token.token)
           render status: :created
         else
@@ -16,11 +14,48 @@ module Api
         end
       end
 
-      private
+			def index
+				users = policy_scope(User)
 
-      def user_params
+				send_response users
+      end
+      
+      def me 
+        if current_user
+          send_response current_user
+        end
+      end
+
+			def show
+				user = policy_scope(User).find_by_id params[:id]
+
+				send_response user
+			end
+
+			def update
+				user = User.find_by_id params[:id]
+				user.update_attributes user_params
+
+				send_response user
+			end
+
+			def destroy
+				user = User.find_by_id params[:id]
+				user.destroy
+
+				render status: :no_content
+			end
+			
+			private
+
+			def user_params
         params.require(:user).permit(:email, :password, :password_confirmation)
       end
-    end
-  end
+
+			def send_response(res)
+				render json: UserSerializer.new(res)
+			end
+		end
+	end
 end
+
