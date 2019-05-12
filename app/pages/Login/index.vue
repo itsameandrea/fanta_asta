@@ -6,7 +6,7 @@
         <div class="mb-4">
           <label class="block text-grey-darker text-sm font-bold mb-2">Email</label>
           <input
-            v-model="user.email"
+            v-model="auth.email"
             type="text"
             class="w-full shadow appearance-none border rounded py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Your Email">
@@ -15,8 +15,8 @@
         <div class="mb-4">
           <label class="block text-grey-darker text-sm font-bold mb-2">Password</label>
           <input
-            v-model="user.password"
-            type="text"
+            v-model="auth.password"
+            type="password"
             class="w-full shadow appearance-none border rounded py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Your Password">
         </div>
@@ -42,20 +42,37 @@
 <script>
 import CustomButton from '@/components/CustomButton'
 export default {
+  middleware: 'preventIfAuthenticated',
   components: {
     CustomButton
   },
   data () {
     return {
-      user: {
+      auth: {
         email: '',
         password: ''
       }
     }
   },
+  computed: {
+    isLoggedIn () {
+      return this.$auth.loggedIn
+    }
+  },
+  watch: {
+    isLoggedIn (so) {
+      if (so) {
+        this.$router.replace('/')
+      }
+    }
+  },
   methods: {
     onClick () {
-      // Login logic
+      this.$auth.loginWith('local', {
+        data: {
+          auth: this.auth
+        }
+      })
     }
   }
 }

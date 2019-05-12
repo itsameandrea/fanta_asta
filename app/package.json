@@ -11,11 +11,14 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.5.3",
     "@nuxtjs/axios": "^5.3.6",
     "air-datepicker": "^2.2.3",
     "cross-env": "^5.2.0",
     "flatpickr": "^4.5.7",
-    "nuxt": "^2.4.0",
+    "json-api-normalizer": "^0.4.14",
+    "nuxt": "^2.6.2",
+    "nuxt-spa-store-init": "^1.1.0",
     "pikaday": "^1.8.0",
     "vue-flatpickr-component": "^8.1.2",
     "vue-moment": "^4.0.0"

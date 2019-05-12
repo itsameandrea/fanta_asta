@@ -6,13 +6,12 @@ module Api
 				shift = Shift.new shift_params
 
 				if shift.save
-					send_response shift
+					send_response(shift, include: [:team])
 				end
 			end
 
 			def index
 				shifts = policy_scope(Shift)
-
 				send_response shifts
 			end
 

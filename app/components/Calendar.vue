@@ -44,7 +44,7 @@ export default {
   },
   props: {
     teams: Array,
-    shifts: Array
+    shifts: Object
   },
   data () {
     return {

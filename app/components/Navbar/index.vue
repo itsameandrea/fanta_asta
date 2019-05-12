@@ -4,6 +4,9 @@
       Toorno
     </div>
     <div class="mr-5 h-full flex justify-between">
+      <nav-link to="/login" >
+        Login
+      </nav-link>
       <nav-link to="/" >
         Calendar
       </nav-link>
@@ -19,6 +22,12 @@ import NavLink from './NavLink'
 export default {
   components: {
     NavLink
+  },
+  methods: {
+    onLogin () {
+      console.log('click')
+      this.$auth.loginWith('auth0')
+    }
   }
 }
 </script>

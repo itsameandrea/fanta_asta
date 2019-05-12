@@ -49,6 +49,7 @@
 <script>
 import CustomButton from '@/components/CustomButton'
 export default {
+  middleware: 'preventIfAuthenticated',
   components: {
     CustomButton
   },
@@ -58,6 +59,18 @@ export default {
         email: '',
         business: '',
         password: ''
+      }
+    }
+  },
+  computed: {
+    isLoggedIn () {
+      return this.$auth.loggedIn
+    }
+  },
+  watch: {
+    isLoggedIn (so) {
+      if (so) {
+        this.$router.replace('/')
       }
     }
   },

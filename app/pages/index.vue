@@ -1,11 +1,11 @@
 <template>
   <div class="container px-6">
-    <calendar 
+    <!-- <calendar 
       :teams="teams" 
       :shifts="shifts" 
       @selected="onShiftSelected"
-      @ctaClick="createShift = true"/>   
-    <!-- <floating-button icon="fas fa-plus" @click="createShift = true"/> -->
+      @ctaClick="createShift = true"/>    -->
+    <floating-button icon="fas fa-plus" @click="createShift = true"/>
     <shift-modal 
       :showModal="createShift" 
       :preloadShift="selectedShift"
@@ -31,6 +31,9 @@ export default {
       selectedShift: null
     }
   },
+  created () {
+    this.$store.dispatch('shifts/getAll')
+  },
   computed: {
     shifts () {
       return this.$store.getters['shifts/shifts']
@@ -40,8 +43,18 @@ export default {
     }
   },
   methods: {
-    async onAdd (shift) {
-      await this.$store.dispatch('shifts/create', shift)
+    onAdd (shift) {
+      const data = {
+        shift: {
+          date: shift.date,
+          employee_id: 8,
+          team_id: 22,
+          start_time: shift.start,
+          end_time: shift.end
+        }
+      }
+      
+      this.$store.dispatch('shifts/create', data)
       this.createShift = false
     },
     onShiftSelected (shift) {

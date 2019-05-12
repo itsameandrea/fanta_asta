@@ -13,4 +13,8 @@ class Shift < ApplicationRecord
 	def assign_client
 		self.client = Current.client
 	end
+
+	def manager_data
+		UserSerializer.new self.manager
+	end
 end

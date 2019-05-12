@@ -6,13 +6,7 @@ class ApplicationController < ActionController::API
 
   def set_current_request_details
     Current.user = current_user if current_user
-    client = Client.find_by_subdomain request.subdomain
-    Current.client = client if client
+    Current.client = current_user.client if current_user
   end
-	
-  private
-  
-  def authenticate_api_user
-    authenticate_for Api::V1::User
-  end
+
 end
