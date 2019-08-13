@@ -1,3 +1,0 @@
-class ShiftPolicy < ApplicationPolicy
-  
-end
