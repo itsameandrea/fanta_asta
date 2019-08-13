@@ -1,4 +1,4 @@
-# Toorno
+# FantaAsta
 
 > My fantabulous Nuxt.js project
 
