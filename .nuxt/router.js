@@ -4,6 +4,7 @@ import { interopDefault } from './utils'
 
 const _16dac628 = () => interopDefault(import('../pages/Auction/index.vue' /* webpackChunkName: "pages/Auction/index" */))
 const _f7eb328e = () => interopDefault(import('../pages/Dashboard/index.vue' /* webpackChunkName: "pages/Dashboard/index" */))
+const _12bab6c9 = () => interopDefault(import('../pages/Leagues/index.vue' /* webpackChunkName: "pages/Leagues/index" */))
 const _5dcdba4e = () => interopDefault(import('../pages/Login/index.vue' /* webpackChunkName: "pages/Login/index" */))
 const _1eb0beb4 = () => interopDefault(import('../pages/Register/index.vue' /* webpackChunkName: "pages/Register/index" */))
 const _784ef50c = () => interopDefault(import('../pages/Leagues/New/index.vue' /* webpackChunkName: "pages/Leagues/New/index" */))
@@ -91,6 +92,10 @@ export function createRouter() {
       path: "/Dashboard",
       component: _f7eb328e,
       name: "Dashboard"
+    }, {
+      path: "/Leagues",
+      component: _12bab6c9,
+      name: "Leagues"
     }, {
       path: "/Login",
       component: _5dcdba4e,

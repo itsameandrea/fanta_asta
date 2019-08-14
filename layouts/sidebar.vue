@@ -17,7 +17,7 @@ export default {
       navItems: [
         { label: 'Dashboard', url: '/dashboard' },
         { label: 'Asta', url: '/auction' },
-        { label: 'Crea Lega', url: '/leagues/new' }
+        { label: 'Lega', url: '/leagues' }
       ]
     }
   },

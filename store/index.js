@@ -6,14 +6,22 @@ export const actions = {
     const { user_id: uid } = getUserFromCookie(req)
 
     if (uid) {
-      const user = await this.$fireStore
+      let user = await this.$fireStore
         .collection('users')
         .doc(uid)
         .get()
       
       
       if (user) {
-        await commit('users/setCurrentUser', user.data())
+        user = user.data()
+        await commit('users/setCurrentUser', user)
+        
+        const league = await this.$fireStore
+          .collection('leagues')
+          .doc(user.league)
+          .get()
+        
+        commit('leagues/setSelectedLeague', league.data())
       }
     }
   }

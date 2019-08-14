@@ -30,13 +30,14 @@ export default {
     PlayersTable,
     UserCard
   },
+  layout: 'sidebar',
   data () {
     return {
       headers: ['role', 'name', 'team']
     }
   },
   created () {
-    // this.$store.dispatch('players/getPlayers')
+    this.$store.dispatch('players/getPlayers')
     this.$store.dispatch('users/getAllUsers')
     this.$store.dispatch('users/getLoggedInUsers')
   },

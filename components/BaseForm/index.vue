@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+    <div class="bg-white px-6 pt-8 pb-3 rounded shadow-md text-black w-full">
       <h1 class="mb-8 text-3xl text-center">{{ title }}</h1>        
       <slot />
       <div class="text-center text-sm text-grey-dark mt-4">

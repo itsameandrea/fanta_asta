@@ -30,6 +30,7 @@ export default {
     PlayersTable,
     UserCard
   },
+  layout: 'sidebar',
   data () {
     return {
       headers: ['role', 'name', 'team']

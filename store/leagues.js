@@ -8,24 +8,30 @@ export const getters = {
 
 export const mutations = {
   setSelectedLeague(state, league) {
-    state.league = league
+    state.selectedLeague = league
   }
 }
 
 export const actions = {
   async createLeague({ commit, dispatch, rootState }, { name, passcode, emails: users }) {
-    const league = await this.$fireStore
+    await this.$fireStore
       .collection('leagues')
-      .add({
+      .doc(name)
+      .set({
         name,
         admin: rootState.users.currentUser,
         passcode,
-        users: [ ...users, rootState.users.currentUser ]
+        users: [ ...users ]
       })
+    
+    const league = await this.$fireStore
+      .collection('leagues')
+      .doc(name)
+      .get()
 
-    await dispatch('users/addUsersToLeague', {
-      league: { id: league.id, name },
-      users
+    await dispatch('users/addLeagueToUsers', {
+      league: name,
+      users: [rootState.users.currentUser]
     }, { root: true })
 
     commit('setSelectedLeague', league.data())

@@ -10,7 +10,7 @@ import LeagueForm from '@/components/LeagueForm'
 
 export default {
   name: 'create-league',
-  layout: 'dashboard',
+  layout: 'sidebar',
   components: { LeagueForm },
   methods: {
     onCreateLeague(leagueDetails) {

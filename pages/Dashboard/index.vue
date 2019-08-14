@@ -4,7 +4,7 @@
 <script>
 export default {
   name: 'dashboard-page',
-  layout: 'dashboard'  
+  layout: 'sidebar'  
 }
 </script>
 <style scoped>

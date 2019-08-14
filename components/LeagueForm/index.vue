@@ -11,16 +11,22 @@
     <tag-input
       placeholder="Email dei tuoi amici"
       v-model="emails" />
-    <button
-      type="submit"
-      class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-      @click="$emit('onSubmit', { name, passcode, emails })">
-        Crea
-    </button>
+    
+    <div class="flex justify-end mt-5">
+      <base-button
+        type="submit"
+        variant="filled"
+        color="purple"
+        class="px-8 text-xl"
+        @click="$emit('onSubmit', { name, passcode, emails })">
+          Crea
+      </base-button>
+    </div>
   </base-form>
 </template>
 <script>
 import BaseForm from '@/components/BaseForm'
+import BaseButton from '@/components/BaseButton'
 import InputTextField from '@/components/InputTextField'
 import TagInput from '@/components/TagInput'
 
@@ -28,6 +34,7 @@ export default {
   name: 'league-form',
   components: {
     BaseForm,
+    BaseButton,
     InputTextField,
     TagInput
   },

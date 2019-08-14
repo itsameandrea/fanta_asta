@@ -50,21 +50,16 @@ export const actions = {
 
     commit('setAllUsers', snapshot.docs.map(doc => doc.data()))
   },
-  async addUsersToLeague({ state }, { league, users }) {
+  async addLeagueToUsers({ state }, { league, users }) {
     // todo - invitation logic
 
     const batch = this.$fireStore.batch()
 
+    // add league to user
     users.forEach(user => {
-      const ref = this.$fireStore.collection('users').doc(user)
-      batch.set(ref, {
-        league,
-        email: user
-      })
+      const ref = this.$fireStore.collection('users').doc(user.uid)
+      batch.update(ref, { league })
     })
-
-    const ref = this.$fireStore.collection('users').doc(state)
-    batch.update(ref, { league })
 
     return await batch.commit()
   },
