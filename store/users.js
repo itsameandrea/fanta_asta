@@ -35,17 +35,17 @@ export const actions = {
 
     await dispatch('updateOnlineStatus')
   },
-  async getLoggedInUsers({ commit }) {
+  async getLoggedInUsers({ commit, rootState }) {
     this.$fireStore.collection('users')
-      .where('league', '==', 'FantaCriteo')
+      .where('league', '==', rootState.leagues.selectedLeague.name)
       .where('online', '==', true)
       .onSnapshot((snapshot) => {
         commit('addLoggedInUsers', snapshot.docs.map(doc => doc.data()))
       })
   },
-  async getAllUsers({ commit }) {
+  async getAllUsers({ rootState, commit }) {
     const snapshot = await this.$fireStore.collection('users')
-      .where('league', '==', 'FantaCriteo')
+      .where('league', '==', rootState.leagues.selectedLeague.name )
       .get()
 
     commit('setAllUsers', snapshot.docs.map(doc => doc.data()))

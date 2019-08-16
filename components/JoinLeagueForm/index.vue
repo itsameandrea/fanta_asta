@@ -1,17 +1,20 @@
 <template>
-  <base-form title="Register">
+  <base-form :title="`Unisciti a ${leagueProp.name}`">
     <input-text-field 
       placeholder="Email"
       type="email"
-      v-model="email" />
+      v-model="user.email" />
     <input-text-field 
       placeholder="Password"
       type="password"
-      v-model="password" />
+      v-model="user.password" />
+    <input-text-field 
+      placeholder="Passcode della lega"
+      v-model="league.passcode" />
     <button
       type="submit"
       class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-      @click="$emit('onSubmit', { email, password })">
+      @click="$emit('onSubmit', { user, league })">
         Submit
     </button>
     <template slot="footer">
@@ -42,11 +45,23 @@ import BaseForm from '@/components/BaseForm'
 export default {
   name: 'login-form',
   components: { InputTextField, BaseForm },
+  props: {
+    leagueProp: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
-      email: '',
-      password: ''
+      user: {
+        email: '',
+        password: ''
+      },
+      league: {
+        passcode: ''
+      }
     }
-  }
+  },
+
 }
 </script>

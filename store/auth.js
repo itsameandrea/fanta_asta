@@ -35,5 +35,7 @@ export const actions = {
     Cookies.set('access_token', token)
     
     dispatch('users/getCurrentUser', { user }, { root: true })
+
+    return Promise.resolve(user.uid)
   }
 }

@@ -14,14 +14,16 @@ export const actions = {
       
       if (user) {
         user = user.data()
+        
         await commit('users/setCurrentUser', user)
         
-        const league = await this.$fireStore
-          .collection('leagues')
-          .doc(user.league)
-          .get()
-        
-        commit('leagues/setSelectedLeague', league.data())
+        if (user.league) {
+          const league = await this.$fireStore
+            .collection('leagues')
+            .doc(user.league)
+            .get()
+          commit('leagues/setSelectedLeague', league.data())
+        }
       }
     }
   }

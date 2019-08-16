@@ -8,6 +8,7 @@ const _12bab6c9 = () => interopDefault(import('../pages/Leagues/index.vue' /* we
 const _5dcdba4e = () => interopDefault(import('../pages/Login/index.vue' /* webpackChunkName: "pages/Login/index" */))
 const _1eb0beb4 = () => interopDefault(import('../pages/Register/index.vue' /* webpackChunkName: "pages/Register/index" */))
 const _784ef50c = () => interopDefault(import('../pages/Leagues/New/index.vue' /* webpackChunkName: "pages/Leagues/New/index" */))
+const _0a90074b = () => interopDefault(import('../pages/Leagues/_slug/Join/index.vue' /* webpackChunkName: "pages/Leagues/_slug/Join/index" */))
 const _c0be35d8 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
@@ -108,6 +109,10 @@ export function createRouter() {
       path: "/Leagues/New",
       component: _784ef50c,
       name: "Leagues-New"
+    }, {
+      path: "/Leagues/:slug/Join",
+      component: _0a90074b,
+      name: "Leagues-slug-Join"
     }, {
       path: "/",
       component: _c0be35d8,
