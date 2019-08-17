@@ -5,6 +5,8 @@ import '../assets/css/tailwind.css'
 
 import '../assets/css/main.css'
 
+import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
+
 import _6f6c098b from '../layouts/default.vue'
 import _e0bb82b4 from '../layouts/sidebar.vue'
 

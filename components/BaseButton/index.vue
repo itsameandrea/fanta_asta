@@ -1,57 +1,61 @@
 <template>
-  <button :class="buttonClass" v-on="$listeners">
-    <slot></slot>
+  <button 
+    class="font-bold rounded border-b-2 shadow-md py-2 px-6 inline-flex items-center"
+    :class="buttonClass">
+    <span class="mr-2">
+      <slot></slot>
+    </span>
+    <font-awesome-icon v-if="appendIcon" :icon="appendIcon" />
   </button>
 </template>
 <script>
 export default {
   name: 'base-button',
   props: {
-    variant: {
-      type: String,
-      default: 'filled'
+    filled: {
+      type: Boolean,
+      default: false
     },
     color: {
       type: String,
-      default: 'blue'
+      default: 'green'
     },
     textColor: {
       type: String,
-      default: 'white'
+      default: 'grey'
+    },
+    appendIcon: {
+      type: String,
+      default: null
     }
   },
   computed: {
     backgroundStyle() {
-      return this.variant === 'filled'
+      return this.filled
         ? `bg-${this.color}`
-        : 'bg-transparent'
+        : 'bg-white'
+    },
+    borderStyle() {
+      return this.filled
+        ? ''
+        : `border-${this.color} hover:border-${this.color}-dark`
     },
     hoverBackgroundStyle() {
-      return this.variant === 'filled'
+      return this.filled
         ? `hover:bg-${this.color}-dark`
         : `hover:bg-${this.color}`
     },
     textStyle() {
-      return this.variant === 'outline'
-        ? `text-${this.color}`
-        : 'text-white'
-    },
-    hoverTextStyle() {
-      return 'hover:text-white'
-    },
-    borderStyle() {
-      return `border border-${this.color}`
+      return this.filled
+        ? 'text-white'
+        : 'text-gray-darker hover:text-white'
     },
     buttonClass() {
       return {
         [this.backgroundStyle]: true,
         [this.hoverBackgroundStyle]: true,
-        [this.textStyle]: true,
-        [this.hoverTextStyle]: true,
         [this.borderStyle]: true,
-        'rounded': true,
-        'py-2': true,
-        'px-5': true
+        [this.textStyle]: true
       }
     }
   }

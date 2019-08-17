@@ -16,7 +16,7 @@ export const actions = {
         user = user.data()
         
         await commit('users/setCurrentUser', user)
-        
+
         if (user.league) {
           const league = await this.$fireStore
             .collection('leagues')

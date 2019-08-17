@@ -14,6 +14,8 @@ import { createStore } from './store.js'
 import nuxt_plugin_nuxtfire_7e2b9500 from 'nuxt_plugin_nuxtfire_7e2b9500' // Source: ./nuxt-fire.js (mode: 'all')
 import nuxt_plugin_axios_36e32c0a from 'nuxt_plugin_axios_36e32c0a' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_userPresence_542a59da from 'nuxt_plugin_userPresence_542a59da' // Source: ../plugins/userPresence (mode: 'client')
+import nuxt_plugin_leagues_60ad63b0 from 'nuxt_plugin_leagues_60ad63b0' // Source: ../plugins/leagues (mode: 'client')
+import nuxt_plugin_fontawesome_d2eb1280 from 'nuxt_plugin_fontawesome_d2eb1280' // Source: ../plugins/fontawesome (mode: 'client')
 
 // Component: <NoSsr>
 Vue.component(NoSsr.name, NoSsr)
@@ -163,6 +165,14 @@ async function createApp(ssrContext) {
 
   if (process.client && typeof nuxt_plugin_userPresence_542a59da === 'function') {
     await nuxt_plugin_userPresence_542a59da(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_leagues_60ad63b0 === 'function') {
+    await nuxt_plugin_leagues_60ad63b0(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_fontawesome_d2eb1280 === 'function') {
+    await nuxt_plugin_fontawesome_d2eb1280(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

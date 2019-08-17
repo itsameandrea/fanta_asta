@@ -35,13 +35,16 @@ export default {
   css: [
     '~/assets/css/tailwind.css',
     '~/assets/css/main.css',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { ssr: false, src: '@/plugins/userPresence' }
+    { ssr: false, src: '@/plugins/userPresence' },
+    { ssr: false, src: '@/plugins/leagues' },
+    { ssr: false, src: '@/plugins/fontawesome' }
   ],
 
   /*

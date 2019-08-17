@@ -27,7 +27,7 @@ export const actions = {
         users: [ ...users ]
       })
     
-    const league = await this.$fireStore
+    await this.$fireStore
       .collection('leagues')
       .doc(name)
       .get()
@@ -38,6 +38,21 @@ export const actions = {
     }, { root: true })
 
     commit('setSelectedLeague', league.data())
+  },
+  async getLeague({ commit, rootState }, name = null) {
+    const league = name
+      ? name 
+      : rootState.users.currentUser
+        ? rootState.users.currentUser.league || null
+        : null
+
+    if (league) {
+      this.$fireStore.collection('leagues')
+        .doc(league)
+        .onSnapshot((league) => {
+          commit('setSelectedLeague', league.data())
+        })
+    }
   },
   async addUserToLeague({ commit }, { user, league}) {
     const users = league.users.filter(u => u !== user.email)
@@ -57,5 +72,13 @@ export const actions = {
       .get()
 
     commit('setSelectedLeague', leagueSnapshot.data())
+  },
+  async updateLeague({ state }, leagueData) {
+    this.$fireStore
+      .collection('leagues')
+      .doc(state.selectedLeague.name)
+      .update({
+        ...leagueData
+      })
   }
 }
