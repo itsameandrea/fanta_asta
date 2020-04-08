@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _16dac628 = () => interopDefault(import('../pages/Auction/index.vue' /* webpackChunkName: "pages/Auction/index" */))
-const _f7eb328e = () => interopDefault(import('../pages/Dashboard/index.vue' /* webpackChunkName: "pages/Dashboard/index" */))
-const _12bab6c9 = () => interopDefault(import('../pages/Leagues/index.vue' /* webpackChunkName: "pages/Leagues/index" */))
-const _5dcdba4e = () => interopDefault(import('../pages/Login/index.vue' /* webpackChunkName: "pages/Login/index" */))
-const _1eb0beb4 = () => interopDefault(import('../pages/Register/index.vue' /* webpackChunkName: "pages/Register/index" */))
-const _784ef50c = () => interopDefault(import('../pages/Leagues/New/index.vue' /* webpackChunkName: "pages/Leagues/New/index" */))
-const _0a90074b = () => interopDefault(import('../pages/Leagues/_slug/Join/index.vue' /* webpackChunkName: "pages/Leagues/_slug/Join/index" */))
-const _c0be35d8 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _b5c3f888 = () => interopDefault(import('../pages/Auction/index.vue' /* webpackChunkName: "pages/Auction/index" */))
+const _e316e166 = () => interopDefault(import('../pages/Dashboard/index.vue' /* webpackChunkName: "pages/Dashboard/index" */))
+const _be041746 = () => interopDefault(import('../pages/Leagues/index.vue' /* webpackChunkName: "pages/Leagues/index" */))
+const _4d2b4ce2 = () => interopDefault(import('../pages/Login/index.vue' /* webpackChunkName: "pages/Login/index" */))
+const _58d533a0 = () => interopDefault(import('../pages/Register/index.vue' /* webpackChunkName: "pages/Register/index" */))
+const _474a4de4 = () => interopDefault(import('../pages/Leagues/New/index.vue' /* webpackChunkName: "pages/Leagues/New/index" */))
+const _68ef7592 = () => interopDefault(import('../pages/Leagues/_slug/Join/index.vue' /* webpackChunkName: "pages/Leagues/_slug/Join/index" */))
+const _7ef4f6a8 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
 
@@ -87,35 +87,35 @@ export function createRouter() {
 
     routes: [{
       path: "/Auction",
-      component: _16dac628,
+      component: _b5c3f888,
       name: "Auction"
     }, {
       path: "/Dashboard",
-      component: _f7eb328e,
+      component: _e316e166,
       name: "Dashboard"
     }, {
       path: "/Leagues",
-      component: _12bab6c9,
+      component: _be041746,
       name: "Leagues"
     }, {
       path: "/Login",
-      component: _5dcdba4e,
+      component: _4d2b4ce2,
       name: "Login"
     }, {
       path: "/Register",
-      component: _1eb0beb4,
+      component: _58d533a0,
       name: "Register"
     }, {
       path: "/Leagues/New",
-      component: _784ef50c,
+      component: _474a4de4,
       name: "Leagues-New"
     }, {
       path: "/Leagues/:slug/Join",
-      component: _0a90074b,
+      component: _68ef7592,
       name: "Leagues-slug-Join"
     }, {
       path: "/",
-      component: _c0be35d8,
+      component: _7ef4f6a8,
       name: "index"
     }],
 

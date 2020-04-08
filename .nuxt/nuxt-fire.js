@@ -5,7 +5,7 @@ import 'firebase/firestore'
 import 'firebase/storage'
 
 export default (ctx, inject) => {
-  const options = {"config":{"development":{"apiKey":"AIzaSyAe9rzsixlnZNmcp73lCWpVqilXWbFYmiw","authDomain":"fanta-asta-dev.firebaseapp.com","databaseURL":"https:\u002F\u002Ffanta-asta-dev.firebaseio.com","projectId":"fanta-asta-dev","storageBucket":"","messagingSenderId":"842552388479","appId":"1:842552388479:web:026cc0b09b8cf15e"}},"useOnly":["auth","firestore","storage","realtimeDb"],"customEnv":false,"functionsLocation":"us-central1","currentEnv":"development"}
+  const options = {"config":{"development":{"apiKey":"AIzaSyAe9rzsixlnZNmcp73lCWpVqilXWbFYmiw","authDomain":"fanta-asta-dev.firebaseapp.com","databaseURL":"https:\u002F\u002Ffanta-asta-dev.firebaseio.com","projectId":"fanta-asta-dev","storageBucket":"","messagingSenderId":"842552388479","appId":"1:842552388479:web:026cc0b09b8cf15e\\"}},"useOnly":["auth","firestore","storage","realtimeDb"],"customEnv":false,"functionsLocation":"us-central1","currentEnv":"development"}
 
   // Don't include when Firebase is already initialized
   if (!firebase.apps.length) {

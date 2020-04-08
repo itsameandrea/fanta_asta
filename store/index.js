@@ -1,7 +1,6 @@
 import { getUserFromCookie } from '@/utils'
 
 export const actions = {
-
   async nuxtServerInit ({ commit, dispatch }, { req }) {
     const { user_id: uid } = getUserFromCookie(req)
 

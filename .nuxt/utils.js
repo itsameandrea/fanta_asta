@@ -138,7 +138,7 @@ export async function setContext(app, context) {
       payload: context.payload,
       error: context.error,
       base: '/',
-      env: {"FIREBASE_API_KEY":"AIzaSyAe9rzsixlnZNmcp73lCWpVqilXWbFYmiw","FIREBASE_AUTH_DOMAIN":"fanta-asta-dev.firebaseapp.com","FIREBASE_DB_URL":"https://fanta-asta-dev.firebaseio.com","FIREBASE_PROJECT_ID":"fanta-asta-dev","FIREBASE_MESSAGING_SENDER_ID":"842552388479","FIREBASE_APP_ID":"1:842552388479:web:026cc0b09b8cf15e"}
+      env: {"FIREBASE_API_KEY":"AIzaSyAe9rzsixlnZNmcp73lCWpVqilXWbFYmiw","FIREBASE_AUTH_DOMAIN":"fanta-asta-dev.firebaseapp.com","FIREBASE_DB_URL":"https://fanta-asta-dev.firebaseio.com","FIREBASE_PROJECT_ID":"fanta-asta-dev","FIREBASE_MESSAGING_SENDER_ID":"842552388479","FIREBASE_APP_ID":"1:842552388479:web:026cc0b09b8cf15e\\"}
     }
     // Only set once
     if (context.req) {

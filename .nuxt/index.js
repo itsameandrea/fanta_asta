@@ -11,8 +11,8 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_nuxtfire_7e2b9500 from 'nuxt_plugin_nuxtfire_7e2b9500' // Source: ./nuxt-fire.js (mode: 'all')
-import nuxt_plugin_axios_36e32c0a from 'nuxt_plugin_axios_36e32c0a' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_nuxtfire_76552aec from 'nuxt_plugin_nuxtfire_76552aec' // Source: ./nuxt-fire.js (mode: 'all')
+import nuxt_plugin_axios_5a86d014 from 'nuxt_plugin_axios_5a86d014' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_userPresence_542a59da from 'nuxt_plugin_userPresence_542a59da' // Source: ../plugins/userPresence (mode: 'client')
 import nuxt_plugin_leagues_60ad63b0 from 'nuxt_plugin_leagues_60ad63b0' // Source: ../plugins/leagues (mode: 'client')
 import nuxt_plugin_fontawesome_d2eb1280 from 'nuxt_plugin_fontawesome_d2eb1280' // Source: ../plugins/fontawesome (mode: 'client')
@@ -155,12 +155,12 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_nuxtfire_7e2b9500 === 'function') {
-    await nuxt_plugin_nuxtfire_7e2b9500(app.context, inject)
+  if (typeof nuxt_plugin_nuxtfire_76552aec === 'function') {
+    await nuxt_plugin_nuxtfire_76552aec(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_36e32c0a === 'function') {
-    await nuxt_plugin_axios_36e32c0a(app.context, inject)
+  if (typeof nuxt_plugin_axios_5a86d014 === 'function') {
+    await nuxt_plugin_axios_5a86d014(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_userPresence_542a59da === 'function') {
